@@ -1,0 +1,33 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: fileupload-service
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/fileupload?useSSL=true&verifyServerCertificate=false
+    username: root
+    password: wcy968968
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQLDialect
+  #jsp支持
+  mvc:
+    view:
+      prefix: /WEB-INF/views/
+      suffix: .jsp
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://47.94.148.30:8761/eureka/
+
+
+logging:
+  level:
+    root: info
+
+
