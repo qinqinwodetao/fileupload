@@ -13,7 +13,7 @@ public class FileService {
     private FileRepository fileRepository;
 
     public boolean isMd5Exist(String md5) {
-        return fileRepository.getOne(md5) != null ? true : false;
+        return fileRepository.exists(md5);
     }
 
 
