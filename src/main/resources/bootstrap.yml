@@ -6,9 +6,9 @@ spring:
     name: fileupload-service
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/fileupload?useSSL=true&verifyServerCertificate=false
+    url: jdbc:mysql://47.94.148.30:3306/fileupload?useSSL=true&verifyServerCertificate=false
     username: root
-    password: wcy968968
+    password: wcy123456
   jpa:
     show-sql: true
     hibernate:
