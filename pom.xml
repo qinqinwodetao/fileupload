@@ -60,10 +60,6 @@
 			<artifactId>spring-cloud-starter-eureka</artifactId>
 		</dependency>
 
-
-
-
-
 		<dependency>
 			<groupId>org.jetbrains</groupId>
 			<artifactId>annotations</artifactId>

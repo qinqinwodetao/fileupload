@@ -1,5 +1,8 @@
 server:
   port: 8002
+  jsp-servlet:
+    init-parameters:
+      development: true
 
 spring:
   application:
