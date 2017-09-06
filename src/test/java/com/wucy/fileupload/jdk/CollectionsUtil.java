@@ -1,4 +1,4 @@
-package com.wucy.fileupload.Utils;
+package com.wucy.fileupload.jdk;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
@@ -40,6 +40,9 @@ public class CollectionsUtil {
         }
 
         System.out.println("增强性for 循环及 Iterator LinkedList遍历速度：" + (System.currentTimeMillis() - startTime) + "ms");
+
+
+
 
 
     }
