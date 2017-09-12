@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.UnsupportedEncodingException;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class TestMe {
 	Logger logger = LoggerFactory.getLogger(Test.class);
@@ -36,6 +38,30 @@ public class TestMe {
 
 	@Test
 	public void testUnicode() throws Exception {
+
+
+		Map<String,Object> maps = new HashMap<>();
+
+
+		maps.put("123", "sssss");
+		maps.put("1231", "sssss");
+		maps.put("123", "sssss");
+		maps.put("123", "ssss");
+
+		Map<String, Object> newMaps = new ConcurrentHashMap<>();
+
+		for (Object obj : newMaps.keySet()) {
+			logger.info(obj.toString());
+		}
+
+		Set<Boolean> sets = new HashSet<>();
+		sets.add(true);
+
+
+		List<String> strings = new ArrayList<>();
+
+
+
 		logger.info(UnicodeUtil.encode("可自理（0~3分）"));
 	}
 
