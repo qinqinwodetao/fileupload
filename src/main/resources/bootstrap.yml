@@ -22,6 +22,11 @@ spring:
     view:
       prefix: /WEB-INF/views/
       suffix: .jsp
+  #文件大小限制
+  http:
+    multipart:
+      max-file-size: 2048MB
+      max-request-size: 2048MB
 
 eureka:
   client:
@@ -31,6 +36,6 @@ eureka:
 
 logging:
   level:
-    root: info
+    root: debug
 
 

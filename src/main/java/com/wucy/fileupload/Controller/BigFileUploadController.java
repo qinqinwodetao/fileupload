@@ -2,6 +2,8 @@ package com.wucy.fileupload.Controller;
 
 import com.wucy.fileupload.Service.FileService;
 import com.wucy.fileupload.Utils.SaveFile;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +17,9 @@ import static com.wucy.fileupload.Utils.IsAllUploaded.Uploaded;
 @Controller
 @RequestMapping("/BigFileUpload")
 public class BigFileUploadController extends SaveFile {
+
+    private static final Logger logger = LoggerFactory.getLogger(BigFileUploadController.class);
+
     @Autowired
     private FileService fileService;
 
@@ -30,7 +35,7 @@ public class BigFileUploadController extends SaveFile {
 
     @ResponseBody
     @RequestMapping(value = "/IsMD5Exist", method = RequestMethod.POST)
-    public String bigFileUpload(String fileMd5, String fileName, String fileID) {
+    public String bigFileUpload(String fileMd5) {
 
         try {
             boolean md5Exist = fileService.isMd5Exist(fileMd5);
@@ -81,13 +86,13 @@ public class BigFileUploadController extends SaveFile {
             //判断文件是否分块
             if (chunks != null && chunk != null) {
                 index = Integer.parseInt(chunk);
-                fileName = String.valueOf(index) + ext;
+                fileName = String.valueOf(index) + "--" + name;
                 // 将文件分块保存到临时文件夹里，便于之后的合并文件
                 saveFile(mergePath, fileName, file);
                 // 验证所有分块是否上传成功，成功的话进行合并
                 Uploaded(md5value, guid, chunk, chunks, uploadFolderPath, fileName, ext, fileService);
             } else {
-                fileName = guid + ext;
+                fileName = guid + "--" + name;
                 //上传文件没有分块的话就直接保存
                 saveFile(uploadFolderPath, fileName, file);
             }

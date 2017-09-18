@@ -2,6 +2,8 @@ package com.wucy.fileupload.Controller;
 
 import com.wucy.fileupload.Model.File;
 import com.wucy.fileupload.Service.FileService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,12 +19,15 @@ import static com.wucy.fileupload.Utils.CreateMd5.createMd5;
 import static com.wucy.fileupload.Utils.DeepCopy.deepClone;
 import static com.wucy.fileupload.Utils.IsImag.isImage;
 import static com.wucy.fileupload.Utils.SaveFile.getRealPath;
+import static com.wucy.fileupload.Utils.SaveFile.getRealTempPath;
 import static com.wucy.fileupload.Utils.SaveFile.saveFile;
 
 
 @Controller
 @RequestMapping("/ImageUpload")
 public class ImageUploadController {
+    private static final Logger logger = LoggerFactory.getLogger(ImageUploadController.class);
+
     @Autowired
     private FileService fileService;
 
@@ -39,25 +44,24 @@ public class ImageUploadController {
                              @RequestParam("lastModifiedDate") String lastModifiedDate,
                              @RequestParam("size") int size,
                              @RequestParam("file") MultipartFile file) {
-        String fileName = "";
-
-        MultipartFile saveFile = null;
+        String fileName ;
 
         try {
-            saveFile = (MultipartFile) deepClone(file);
-            java.io.File tempFile = new java.io.File(UUID.randomUUID().toString());
+            java.io.File tempFile = new java.io.File( getRealTempPath() + UUID.randomUUID().toString());
             file.transferTo(tempFile);
+
             if (!isImage(tempFile))
                 return "{\"error\":true}";
 
             String realpath = getRealPath();
             String ext = name.substring(name.lastIndexOf("."));
-            fileName = UUID.randomUUID().toString() + ext;
-            saveFile(realpath, fileName, saveFile);
+            fileName = UUID.randomUUID().toString() + name;
+            saveFile(realpath, fileName, file);
 
             fileService.save(new File(fileName, createMd5(file).toString(), new Date()));
 
         } catch (Exception ex) {
+            logger.error(ex.getMessage());
             return "{\"error\":true}";
         }
 

@@ -10,6 +10,6 @@ public class IsImag {
     public static boolean isImage(File tempFile)
             throws Exception {
         ImageInputStream is= ImageIO.createImageInputStream(tempFile);
-        return is!=null;
+        return is != null;
     }
 }

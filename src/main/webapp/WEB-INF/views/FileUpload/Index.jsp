@@ -93,7 +93,7 @@
                 $('#' + file.id).find(".info").find('.btn').fadeOut('slow');//上传完后删除"删除"按钮
             });
 
-            uploader.on('uploadError', function (file) {
+            uploader.on('uploadError', function (file,reason) {
                 $('#' + file.id).find('p.state').text('上传出错');
                 //上传出错后进度条爆红
                 $('#' + file.id).find(".progress").find(".progress-bar").attr("class", "progress-bar progress-bar-danger");

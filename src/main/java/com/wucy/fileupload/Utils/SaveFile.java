@@ -85,7 +85,18 @@ public class SaveFile {
         //realPath = realPath.replaceFirst("/", "");
         return realPath;
     }
-
+    /**
+     * 获得TEMP绝对路径
+     *
+     * @return
+     */
+    public static String getRealTempPath() {
+        String realTempPath;
+        String path = FileUploadController.class.getResource("/").getFile();
+        realTempPath = path + "META-INF/resources/upload/temp";
+        //realPath = realPath.replaceFirst("/", "");
+        return realTempPath;
+    }
 
     /**
      * 根据文件路径获取File

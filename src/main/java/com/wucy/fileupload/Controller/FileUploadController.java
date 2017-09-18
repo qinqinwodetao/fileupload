@@ -2,6 +2,9 @@ package com.wucy.fileupload.Controller;
 
 import com.wucy.fileupload.Model.File;
 import com.wucy.fileupload.Service.FileService;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +24,9 @@ import static com.wucy.fileupload.Utils.SaveFile.saveFile;
 @Controller
 @RequestMapping("/FileUpload")
 public class FileUploadController {
+
+	private static final Logger logger = LoggerFactory.getLogger(FileUploadController.class);
+
 	@Autowired
 	private FileService fileService;
 
@@ -38,10 +44,14 @@ public class FileUploadController {
 	                         @RequestParam("size") int size,
 	                         @RequestParam("file") MultipartFile file) {
 		String fileName;
+		String md5;
 
 		try {
-			String ext = name.substring(name.lastIndexOf("."));
-			fileName = UUID.randomUUID().toString() + ext;
+			fileName = UUID.randomUUID().toString() + "--" + name;
+			md5 = createMd5(file).toString();
+			if(fileService.exists(md5)){
+				return "{\"error\":true}";
+			}
 			saveFile(getRealPath(), fileName, file);
 		} catch (Exception ex) {
 			return "{\"error\":true}";
