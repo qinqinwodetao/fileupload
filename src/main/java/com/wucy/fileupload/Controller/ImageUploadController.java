@@ -47,10 +47,9 @@ public class ImageUploadController {
         String fileName ;
 
         try {
-            java.io.File tempFile = new java.io.File( getRealTempPath() + UUID.randomUUID().toString());
-            file.transferTo(tempFile);
 
-            if (!isImage(tempFile))
+
+            if (!isImage(file))
                 return "{\"error\":true}";
 
             String realpath = getRealPath();

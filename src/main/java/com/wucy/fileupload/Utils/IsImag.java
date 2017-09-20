@@ -1,15 +1,21 @@
 package com.wucy.fileupload.Utils;
 
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
-import java.io.File;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.InputStream;
 
 @SuppressWarnings("ConstantConditions")
 public class IsImag {
-    public static boolean isImage(File tempFile)
+    public static boolean isImage(MultipartFile tempFile)
             throws Exception {
-        ImageInputStream is= ImageIO.createImageInputStream(tempFile);
-        return is != null;
+
+        InputStream is = tempFile.getInputStream();
+        BufferedImage bi=ImageIO.read(is);
+        Image im = bi;
+        return im != null;
     }
 }
