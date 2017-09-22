@@ -42,7 +42,9 @@ public class CollectionsUtil {
         System.out.println("增强性for 循环及 Iterator LinkedList遍历速度：" + (System.currentTimeMillis() - startTime) + "ms");
 
 
+        new JdkStream.Potato();
 
+        Orange orange = new Orange();
 
 
     }

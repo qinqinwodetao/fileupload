@@ -5,9 +5,6 @@ public class MultiThread extends Thread {
 
 	private volatile String uuid;
 
-	public MultiThread() {
-	}
-
 	public MultiThread(String uuid) {
 		this.uuid = uuid;
 	}
