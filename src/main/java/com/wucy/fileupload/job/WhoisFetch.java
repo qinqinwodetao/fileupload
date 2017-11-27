@@ -1,11 +1,11 @@
 package com.wucy.fileupload.job;
 
-import com.wucy.fileupload.Model.MailInfo;
-import com.wucy.fileupload.Model.Whois;
-import com.wucy.fileupload.Service.WhoisService;
-import com.wucy.fileupload.Utils.HttpClientUtil;
-import com.wucy.fileupload.Utils.MailUtil;
-import com.wucy.fileupload.Utils.UUIDUtil;
+import com.wucy.fileupload.model.MailInfo;
+import com.wucy.fileupload.model.Whois;
+import com.wucy.fileupload.service.WhoisService;
+import com.wucy.fileupload.utils.HttpClientUtil;
+import com.wucy.fileupload.utils.MailUtil;
+import com.wucy.fileupload.utils.UUIDUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

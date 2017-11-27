@@ -1,9 +1,9 @@
 package com.wucy.fileupload;
 
-import com.wucy.fileupload.Model.MailInfo;
-import com.wucy.fileupload.Utils.HttpClientUtil;
-import com.wucy.fileupload.Utils.MailUtil;
-import com.wucy.fileupload.Utils.UnicodeUtil;
+import com.wucy.fileupload.model.MailInfo;
+import com.wucy.fileupload.utils.HttpClientUtil;
+import com.wucy.fileupload.utils.MailUtil;
+import com.wucy.fileupload.utils.UnicodeUtil;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -8,16 +8,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.math.BigDecimal;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 
 /**
  * Jdk Steam demo
@@ -33,21 +30,22 @@ public class JdkStream {
 	@Before
 	public void addApples(){
 		apples.clear();
+		Long l1 = System.currentTimeMillis();
 		//构造器引用
 		AppleFactory<Apple> appleFactory = Apple::new;
-
+		for(int i=0;i<1000000;i++){
 			apples.add(appleFactory.create("001","green", 8, 6));
 			apples.add(appleFactory.create("002","red", 3, 3));
 			apples.add(appleFactory.create("003","red", 7, 9.3f));
 			apples.add(appleFactory.create("004","red", 1, 1.3f));
 			apples.add(appleFactory.create("005","red", 5, 7.3f));
 			apples.add(appleFactory.create("006","red", 3, 8f));
-			apples.add(appleFactory.create("007","green", 9, 10.6f));
-		for(int i=0;i<100000;i++){
+			apples.add(appleFactory.create("007","green", i+9, 10.6f));
+
 		}
 		intStream = IntStream.range(0, 99);
 
-		logger.info("size:" + apples.size());
+		logger.info("size:" + apples.size() +"| time:" + (System.currentTimeMillis()- l1));
 	}
 
 	@Test
@@ -190,8 +188,14 @@ public class JdkStream {
 
 //		Stream.generate(Math::random).limit(20).forEach(System.out::println);
 
-		int[] ints = new int[]{1,3,4,5,6,7};
-		Arrays.stream(ints).skip(3).forEach(System.out::println);
+
+
+		//Optional<Apple> xxx = apples.parallelStream().max(Apple::compareTo);
+		//Optional<Apple> xxx = apples.stream().max(Apple::compareTo);
+		//logger.info(xxx.get().toString());
+		logger.info(apples.parallelStream().map(apple -> apple.weight).reduce(0f,Float::sum).toString());
+		logger.info(apples.stream().map(apple -> apple.weight).reduce(0f,Float::sum).toString());
+		//apples.stream().forEach(System.out::println);
 
 	}
 

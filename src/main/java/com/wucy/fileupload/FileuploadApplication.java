@@ -7,7 +7,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableEurekaClient
-//@EnableScheduling
+@EnableScheduling
 public class FileuploadApplication {
 
 	public static void main(String[] args) {
