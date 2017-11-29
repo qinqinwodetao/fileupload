@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
 
+/**
+ * @author wucy
+ */
 @Table
 @Entity
 public class File extends BaseModel {
@@ -13,22 +16,10 @@ public class File extends BaseModel {
 	private String fileName;
 	private Date uploadDate;
 
-	@Override
-	public String toString() {
-		return "File{" +
-				"fileName='" + fileName + '\'' +
-				", MD5='" + MD5 + '\'' +
-				", uploadDate=" + uploadDate +
-				'}';
-	}
-
 	public File(String fileName, String MD5, Date uploadDate) {
 		this.fileName = fileName;
 		this.MD5 = MD5;
 		this.uploadDate = uploadDate;
-	}
-
-	public File() {
 	}
 
 	public String getFileName() {
@@ -53,5 +44,16 @@ public class File extends BaseModel {
 
 	public void setUploadDate(Date uploadDate) {
 		this.uploadDate = uploadDate;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "File{" +
+				"fileName='" + fileName + '\'' +
+				", MD5='" + MD5 + '\'' +
+				", uploadDate=" + uploadDate +
+				'}';
 	}
 }

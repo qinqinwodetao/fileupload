@@ -10,7 +10,7 @@ import org.apache.commons.mail.EmailAttachment;
  * 
  */
 public class MailInfo {
-    
+
     // 收件人
     private List<String> toAddress = new ArrayList<>();
     // 抄送人地址
@@ -38,8 +38,10 @@ public class MailInfo {
     }
 
     public void addCcAddress(List<String> ccAddress) {
-        if (null != ccAddress && ccAddress.size() > 0)
+        if (null != ccAddress && ccAddress.size() > 0){
             this.ccAddress.addAll(ccAddress);
+        }
+
     }
 
     public List<EmailAttachment> getAttachments() {

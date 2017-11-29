@@ -6,6 +6,9 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author wucy
+ */
 @MappedSuperclass
 public abstract class BaseModel implements Serializable {
 
