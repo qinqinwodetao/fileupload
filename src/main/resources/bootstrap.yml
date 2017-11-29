@@ -6,7 +6,7 @@ server:
 
 spring:
   application:
-    name: fileupload-service
+    name: boot-service
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://47.94.148.30:3306/fileupload?useSSL=true&verifyServerCertificate=false
@@ -36,6 +36,6 @@ eureka:
 
 logging:
   level:
-    root: debug
+    root: info
 
 
