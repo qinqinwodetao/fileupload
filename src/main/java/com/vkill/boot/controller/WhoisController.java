@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * @author wucy
+ * @author boot
  */
 @RestController
 @RequestMapping(value = "/whois")

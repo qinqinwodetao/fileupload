@@ -6,7 +6,7 @@ import javax.persistence.Table;
 import java.util.Date;
 
 /**
- * @author wucy
+ * @author boot
  */
 @Table
 @Entity

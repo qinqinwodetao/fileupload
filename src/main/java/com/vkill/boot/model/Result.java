@@ -7,7 +7,7 @@ import java.util.Map;
 
 
 /**
- * @author wucy
+ * @author boot
  */
 public class Result extends HashMap<String, Object> {
 	private static final long serialVersionUID = 1L;

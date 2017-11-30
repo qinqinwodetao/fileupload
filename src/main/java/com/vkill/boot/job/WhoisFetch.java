@@ -1,5 +1,6 @@
 package com.vkill.boot.job;
 
+import com.vkill.boot.rabbitmq.HelloSender;
 import com.vkill.boot.service.WhoisService;
 import com.vkill.boot.utils.HttpClientUtil;
 import com.vkill.boot.utils.MailUtil;
@@ -21,6 +22,19 @@ public class WhoisFetch {
 	@Autowired
 	private WhoisService whoisService;
 
+
+	@Autowired
+	private HelloSender helloSender;
+
+	//@Scheduled(fixedRate = 1000)
+	public void  sendHello(){
+		int i = 0;
+		while (i<100){
+			helloSender.send();
+			i++;
+		}
+
+	}
 
 	//@Scheduled(fixedRate = 30000)
 	public void timerRate() {

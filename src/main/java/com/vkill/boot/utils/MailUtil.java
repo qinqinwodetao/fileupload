@@ -15,7 +15,7 @@ public class MailUtil {
 	//邮箱
 	private static String mailServerHost = "smtp.163.com";
 	private static String mailSenderAddress = "eva20170714@163.com";
-	private static String mailSenderNick = "wucy";
+	private static String mailSenderNick = "boot";
 	private static String mailSenderUsername = "eva20170714@163.com";
 	private static String mailSenderPassword = "root123456";
 

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
- * @author wucy
+ * @author boot
  */
 @SpringBootApplication
 @EnableEurekaClient

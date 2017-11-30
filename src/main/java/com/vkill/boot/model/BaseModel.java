@@ -7,7 +7,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @author wucy
+ * @author boot
  */
 @MappedSuperclass
 public abstract class BaseModel implements Serializable {

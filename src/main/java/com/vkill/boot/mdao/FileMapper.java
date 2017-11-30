@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.springframework.stereotype.Component;
 
 /**
- * Created by wucy
+ * Created by boot
  * Date: 2017-10-12 18:12:00
  * Descript: fileMapper
  */

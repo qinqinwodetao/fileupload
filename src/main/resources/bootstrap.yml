@@ -5,6 +5,11 @@ server:
       development: true
 
 spring:
+  rabbitmq:
+    host: 47.94.148.30
+    port: 5672
+    username: root
+    password: 123456
   application:
     name: boot-service
   datasource:

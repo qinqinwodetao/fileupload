@@ -22,7 +22,7 @@ import static com.vkill.boot.utils.SaveFile.saveFile;
 
 
 /**
- * @author wucy
+ * @author boot
  */
 @Controller
 @RequestMapping("/ImageUpload")

@@ -3,7 +3,7 @@ package com.vkill.boot.utils;
 import java.util.UUID;
 
 /**
- * Created by wucy on 2017/8/8.
+ * Created by boot on 2017/8/8.
  */
 public class UUIDUtil {
 
