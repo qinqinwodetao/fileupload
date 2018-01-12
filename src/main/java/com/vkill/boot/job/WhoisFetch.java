@@ -26,16 +26,35 @@ public class WhoisFetch {
 	@Autowired
 	private HelloSender helloSender;
 
-	//@Scheduled(fixedRate = 1000)
+	@Scheduled(fixedRate = 1000)
 	public void  sendHello(){
 		int i = 0;
-		while (i<100){
+		while (i<1000){
 			helloSender.send();
 			i++;
 		}
 
 	}
 
+	@Scheduled(fixedRate = 1000)
+	public void  sendHello1(){
+		int i = 0;
+		while (i<1000){
+			helloSender.send();
+			i++;
+		}
+
+	}
+
+	@Scheduled(fixedRate = 1000)
+	public void  sendHello2(){
+		int i = 0;
+		while (i<1000){
+			helloSender.send();
+			i++;
+		}
+
+	}
 	//@Scheduled(fixedRate = 30000)
 	public void timerRate() {
 		String domainName = "vkill.com";
